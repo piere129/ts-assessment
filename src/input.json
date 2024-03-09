@@ -1,0 +1,1171 @@
+{
+    "id": "65afd23111efc8f67a03fa25",
+    "projectId": "65afcf8cdb285265fae6c100",
+    "organisationId": "5ccad715074ce2b850f646d5",
+    "metadata": {},
+    "status": "IN_PROGRESS",
+    "step": "OUTPUT",
+    "files": [
+        {
+            "id": "65afd23111efc8f67a03fa29",
+            "name": "i_inv20277107.pdf",
+            "url": "https://mmsponsorsastguat.blob.core.windows.net/uploads/9f8d5744-06ab-4462-8bf9-020c8379663f?sv=2022-11-02&st=2024-01-24T07%3A02%3A33Z&se=2024-04-23T06%3A07%3A33Z&sr=b&sp=r&sig=MMMqQJzRGw%2BGTIXeFDFIyjJRzeJFMZZLqT5tRa9cspg%3D&rsct=application%2Fpdf",
+            "pageIds": [
+                "65afd248bd19b2cdb0eff282"
+            ]
+        }
+    ],
+    "pages": [
+        {
+            "id": "65afd248bd19b2cdb0eff282",
+            "fileId": "65afd23111efc8f67a03fa29",
+            "text": "Factuur INV 20277107 VERFONLINE XL Order ORD 821921031 Bart Van Miegem www . verfonline - xl . nl Blauwhofdreef 14 info @ verfonline - xl . nl 9290 Berlare Tel 085 - 0666375 Belgium VerfonlineXL bartvanmiegem 2 @ msn . com Magalhaesweg 8 Tel + 32 478994132 5928 LN Venlo Nederland Factuurnummer Ordernummer Klantnummer Datum INV 20277107 ORD 821921031 181759548 Woensdag 28 Juni 2023 Omschrijving Artikelcode Aantal BTW Item prijs Korting Subtotaal Sikkens Alpha Primer 3 x 21 % € 131 , 56 € 0 , 00 € 394 , 68 Inhoud : 10 liter , Kleur : Wit Kleur : RAL RAL 9010 [ 10000080 ] Sikkens Alphacryl Pure Mat SF x 21 % € 179 , 68 € 0 , 00 € 539 , 04 Inhoud : 10 liter , Kleur : Wit Kleur : RAL RAL 9010 [ 10000080 ] Verzending & Afhandeling 1 x 0 % € 0 , 00 € 0 , 00 € 0 , 00 Bezorgd thuis of op het werk Betaalkosten 1 x 0 % € 0 , 00 € 0 , 00 € 0 , 00 MultiSafepay Payments - Maestro Totaal excl . BTW € 771 , 67 BTW 21 % € 162 , 05 Totaal incl . BTW € 933 , 72 Bedrijfsgegevens Bankgegevens Verzendadres KvK - nummer 12037333 Rekeninghouder Backes en Boels Bart Van Miegem Btw - nummer NL 806471232 B 01 Bank Rabobank Blauwhofdreef 14 9290 Berlare Belgium Betaalmethode MultiSafepay Payments - Maestro",
+            "index": 0,
+            "height": 4199,
+            "width": 2968,
+            "documentTypeConfidence": null,
+            "pageManagementConfidence": null
+        }
+    ],
+    "documents": [
+        {
+            "id": "65afd249bd19b2cdb0eff56d",
+            "status": "DONE",
+            "language": "nl",
+            "name": "i_inv20277107.pdf",
+            "step": "ENTITY_EXTRACTION",
+            "documentType": {
+                "id": "65afd258db285265fae6c6fa",
+                "name": "Invoice - Paint",
+                "threshold": 0.7,
+                "confidence": null
+            },
+            "pageIds": [
+                "65afd248bd19b2cdb0eff282"
+            ],
+            "entities": [
+                {
+                    "id": "65afd280db285265fae6c728",
+                    "name": "invoice number",
+                    "threshold": 0.75,
+                    "type": "REGULAR",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": []
+                },
+                {
+                    "id": "65afd286db285265fae6c74c",
+                    "name": "order number",
+                    "threshold": 0.75,
+                    "type": "REGULAR",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": []
+                },
+                {
+                    "id": "65afd290db285265fae6c770",
+                    "name": "client number",
+                    "threshold": 0.75,
+                    "type": "NUMBER",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": [
+                        "65afd45bdb285265fae6ca90"
+                    ]
+                },
+                {
+                    "id": "65afd2a4db285265fae6c794",
+                    "name": "order date",
+                    "threshold": 0.75,
+                    "type": "DATE",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": []
+                },
+                {
+                    "id": "65afd2d2db285265fae6c7dc",
+                    "name": "color RAL",
+                    "threshold": 0.75,
+                    "type": "REGULAR",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": [
+                        "65afd42fdb285265fae6ca62"
+                    ]
+                },
+                {
+                    "id": "65afd2fbdb285265fae6c81b",
+                    "name": "article name",
+                    "threshold": 0.75,
+                    "type": "REGULAR",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": [
+                        "65afd45bdb285265fae6ca90"
+                    ]
+                },
+                {
+                    "id": "65afd317db285265fae6c863",
+                    "name": "VAT number",
+                    "threshold": 0.75,
+                    "type": "NUMBER",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": []
+                },
+                {
+                    "id": "65afd334db285265fae6c887",
+                    "name": "article total",
+                    "threshold": 0.75,
+                    "type": "NUMBER",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": [
+                        "65afd45bdb285265fae6ca90"
+                    ]
+                },
+                {
+                    "id": "65afd3a8db285265fae6c945",
+                    "name": "article color",
+                    "threshold": 0.75,
+                    "type": "REGULAR",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": [
+                        "65afd42fdb285265fae6ca62"
+                    ]
+                },
+                {
+                    "id": "65afd418db285265fae6ca1a",
+                    "name": "article content",
+                    "threshold": 0.75,
+                    "type": "REGULAR",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": [
+                        "65afd42fdb285265fae6ca62"
+                    ]
+                },
+                {
+                    "id": "65afd41fdb285265fae6ca3e",
+                    "name": "article description",
+                    "threshold": 0.75,
+                    "type": "REGULAR",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": [
+                        "65afd42fdb285265fae6ca62"
+                    ]
+                },
+                {
+                    "id": "65afd42fdb285265fae6ca62",
+                    "name": "article details",
+                    "threshold": 0.75,
+                    "type": "REGULAR",
+                    "class": "RELATION",
+                    "imageType": null,
+                    "refs": [
+                        "65afd45bdb285265fae6ca90"
+                    ]
+                },
+                {
+                    "id": "65afd45bdb285265fae6ca90",
+                    "name": "article",
+                    "threshold": 0.75,
+                    "type": "REGULAR",
+                    "class": "RELATION",
+                    "imageType": null,
+                    "refs": []
+                },
+                {
+                    "id": "65afda01db285265fae6da4d",
+                    "name": "total",
+                    "threshold": 0.75,
+                    "type": "NUMBER",
+                    "class": "TEXT",
+                    "imageType": null,
+                    "refs": []
+                }
+            ],
+            "annotations": [
+                {
+                    "id": "65afd61c45977d96c2ebc9f9",
+                    "entityId": "65afd290db285265fae6c770",
+                    "refs": [],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "181759548",
+                    "parsedValue": 181759548,
+                    "value": 181759548,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 1090,
+                            "x1": 1285,
+                            "y0": 1326,
+                            "y1": 1373
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 59,
+                            "end": 59
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd62145977d96c2ebc9fa",
+                    "entityId": "65afd286db285265fae6c74c",
+                    "refs": [],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "ORD 821921031",
+                    "parsedValue": null,
+                    "value": "ORD 821921031",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 666,
+                            "x1": 947,
+                            "y0": 1327,
+                            "y1": 1373
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 57,
+                            "end": 58
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd62545977d96c2ebc9fb",
+                    "entityId": "65afd2a4db285265fae6c794",
+                    "refs": [],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Woensdag 28 Juni 2023",
+                    "parsedValue": "2023/06/28",
+                    "value": "2023/06/28",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 2134,
+                            "x1": 2611,
+                            "y0": 1325,
+                            "y1": 1373
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 60,
+                            "end": 63
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd64a45977d96c2ebc9fc",
+                    "entityId": "65afd280db285265fae6c728",
+                    "refs": [],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "INV 20277107",
+                    "parsedValue": null,
+                    "value": "INV 20277107",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 244,
+                            "x1": 498,
+                            "y0": 1327,
+                            "y1": 1372
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 55,
+                            "end": 56
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd66a45977d96c2ebc9fd",
+                    "entityId": "65afd2fbdb285265fae6c81b",
+                    "refs": [
+                        "65afdaf8db285265fae6dfb2"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Sikkens Alpha Primer",
+                    "parsedValue": null,
+                    "value": "Sikkens Alpha Primer",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 256,
+                            "x1": 645,
+                            "y0": 1558,
+                            "y1": 1600
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 72,
+                            "end": 74
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd71d45977d96c2ebc9ff",
+                    "entityId": "65afd334db285265fae6c887",
+                    "refs": [
+                        "65afdaf8db285265fae6dfb2"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "394 , 68",
+                    "parsedValue": 394.68,
+                    "value": 394.68,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 2579.924625,
+                            "x1": 2706,
+                            "y0": 1558,
+                            "y1": 1602
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 88,
+                            "end": 90
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd73145977d96c2ebca01",
+                    "entityId": "65afd418db285265fae6ca1a",
+                    "refs": [
+                        "65afdadbdb285265fae6deaa"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Inhoud : 10 liter",
+                    "parsedValue": null,
+                    "value": "Inhoud : 10 liter",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 256,
+                            "x1": 501.822951,
+                            "y0": 1611,
+                            "y1": 1653
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 91,
+                            "end": 94
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd74745977d96c2ebca02",
+                    "entityId": "65afd3a8db285265fae6c945",
+                    "refs": [
+                        "65afdadbdb285265fae6deaa"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Kleur : Wit",
+                    "parsedValue": null,
+                    "value": "Kleur : Wit",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 519,
+                            "x1": 690,
+                            "y0": 1611,
+                            "y1": 1653
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 96,
+                            "end": 98
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd96445977d96c2ebca04",
+                    "entityId": "65afd2fbdb285265fae6c81b",
+                    "refs": [
+                        "65afdb05db285265fae6dff4"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Sikkens Alphacryl Pure Mat SF",
+                    "parsedValue": null,
+                    "value": "Sikkens Alphacryl Pure Mat SF",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 253,
+                            "x1": 802,
+                            "y0": 1743,
+                            "y1": 1785
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 107,
+                            "end": 111
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd96945977d96c2ebca05",
+                    "entityId": "65afd418db285265fae6ca1a",
+                    "refs": [
+                        "65afdae2db285265fae6deec"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Inhoud : 10 liter",
+                    "parsedValue": null,
+                    "value": "Inhoud : 10 liter",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 254,
+                            "x1": 501.675885,
+                            "y0": 1797,
+                            "y1": 1840
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 127,
+                            "end": 130
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd96c45977d96c2ebca06",
+                    "entityId": "65afd3a8db285265fae6c945",
+                    "refs": [
+                        "65afdae2db285265fae6deec"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Kleur : Wit",
+                    "parsedValue": null,
+                    "value": "Kleur : Wit",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 520,
+                            "x1": 680,
+                            "y0": 1796,
+                            "y1": 1839
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 132,
+                            "end": 134
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd99145977d96c2ebca08",
+                    "entityId": "65afd334db285265fae6c887",
+                    "refs": [
+                        "65afdb05db285265fae6dff4"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "539 , 04",
+                    "parsedValue": 539.04,
+                    "value": 539.04,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 2574.155477,
+                            "x1": 2707,
+                            "y0": 1743,
+                            "y1": 1785
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 124,
+                            "end": 126
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd99e45977d96c2ebca09",
+                    "entityId": "65afd2fbdb285265fae6c81b",
+                    "refs": [
+                        "65afe077db285265fae6e64e"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Verzending & Afhandeling",
+                    "parsedValue": null,
+                    "value": "Verzending & Afhandeling",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 253,
+                            "x1": 716,
+                            "y0": 1929,
+                            "y1": 1972
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 143,
+                            "end": 145
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd9a345977d96c2ebca0a",
+                    "entityId": "65afd41fdb285265fae6ca3e",
+                    "refs": [
+                        "65afdae8db285265fae6df2e"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Bezorgd thuis of op het werk",
+                    "parsedValue": null,
+                    "value": "Bezorgd thuis of op het werk",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 255,
+                            "x1": 747,
+                            "y0": 1984,
+                            "y1": 2026
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 162,
+                            "end": 167
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd9b345977d96c2ebca0b",
+                    "entityId": "65afd2d2db285265fae6c7dc",
+                    "refs": [
+                        "65afdadbdb285265fae6deaa"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Kleur : RAL RAL 9010 [ 10000080 ]",
+                    "parsedValue": null,
+                    "value": "Kleur : RAL RAL 9010 [ 10000080 ]",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 258,
+                            "x1": 832,
+                            "y0": 1662,
+                            "y1": 1705
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 99,
+                            "end": 106
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd9bc45977d96c2ebca0c",
+                    "entityId": "65afd2d2db285265fae6c7dc",
+                    "refs": [
+                        "65afdae2db285265fae6deec"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Kleur : RAL RAL 9010 [ 10000080 ]",
+                    "parsedValue": null,
+                    "value": "Kleur : RAL RAL 9010 [ 10000080 ]",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 256,
+                            "x1": 839,
+                            "y0": 1847,
+                            "y1": 1890
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 135,
+                            "end": 142
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd9c145977d96c2ebca0d",
+                    "entityId": "65afd41fdb285265fae6ca3e",
+                    "refs": [
+                        "65afdaefdb285265fae6df70"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "MultiSafepay Payments - Maestro",
+                    "parsedValue": null,
+                    "value": "MultiSafepay Payments - Maestro",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 253,
+                            "x1": 820,
+                            "y0": 2113,
+                            "y1": 2159
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 185,
+                            "end": 188
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd9c645977d96c2ebca0e",
+                    "entityId": "65afd334db285265fae6c887",
+                    "refs": [
+                        "65afe077db285265fae6e64e"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "0 , 00",
+                    "parsedValue": 0,
+                    "value": 0,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 2619.002341,
+                            "x1": 2703,
+                            "y0": 1929,
+                            "y1": 1971
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 159,
+                            "end": 161
+                        }
+                    ]
+                },
+                {
+                    "id": "65afd9cb45977d96c2ebca0f",
+                    "entityId": "65afd334db285265fae6c887",
+                    "refs": [
+                        "65afdb37db285265fae6e0ba"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "0 , 00",
+                    "parsedValue": 0,
+                    "value": 0,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 2618.002341,
+                            "x1": 2702,
+                            "y0": 2060,
+                            "y1": 2102
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 182,
+                            "end": 184
+                        }
+                    ]
+                },
+                {
+                    "id": "65afda0a45977d96c2ebca12",
+                    "entityId": "65afda01db285265fae6da4d",
+                    "refs": [],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "933 , 72",
+                    "parsedValue": 933.72,
+                    "value": 933.72,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 2497.463595,
+                            "x1": 2665,
+                            "y0": 2407,
+                            "y1": 2459
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 209,
+                            "end": 211
+                        }
+                    ]
+                },
+                {
+                    "id": "65afdadbdb285265fae6deaa",
+                    "entityId": "65afd42fdb285265fae6ca62",
+                    "refs": [
+                        "65afdaf8db285265fae6dfb2"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": null,
+                    "parsedValue": null,
+                    "value": null,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": null,
+                    "indices": []
+                },
+                {
+                    "id": "65afdae2db285265fae6deec",
+                    "entityId": "65afd42fdb285265fae6ca62",
+                    "refs": [
+                        "65afdb05db285265fae6dff4"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": null,
+                    "parsedValue": null,
+                    "value": null,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": null,
+                    "indices": []
+                },
+                {
+                    "id": "65afdae8db285265fae6df2e",
+                    "entityId": "65afd42fdb285265fae6ca62",
+                    "refs": [
+                        "65afe077db285265fae6e64e"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": null,
+                    "parsedValue": null,
+                    "value": null,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": null,
+                    "indices": []
+                },
+                {
+                    "id": "65afdaefdb285265fae6df70",
+                    "entityId": "65afd42fdb285265fae6ca62",
+                    "refs": [
+                        "65afdb37db285265fae6e0ba"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": null,
+                    "parsedValue": null,
+                    "value": null,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": null,
+                    "indices": []
+                },
+                {
+                    "id": "65afdaf8db285265fae6dfb2",
+                    "entityId": "65afd45bdb285265fae6ca90",
+                    "refs": [],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": null,
+                    "parsedValue": null,
+                    "value": null,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": null,
+                    "indices": []
+                },
+                {
+                    "id": "65afdb05db285265fae6dff4",
+                    "entityId": "65afd45bdb285265fae6ca90",
+                    "refs": [],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": null,
+                    "parsedValue": null,
+                    "value": null,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": null,
+                    "indices": []
+                },
+                {
+                    "id": "65afdb269e8c1f598da55c39",
+                    "entityId": "65afd2fbdb285265fae6c81b",
+                    "refs": [
+                        "65afdb37db285265fae6e0ba"
+                    ],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": "Betaalkosten",
+                    "parsedValue": null,
+                    "value": "Betaalkosten",
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "x0": 257,
+                            "x1": 489,
+                            "y0": 2064,
+                            "y1": 2104
+                        }
+                    ],
+                    "indices": [
+                        {
+                            "pageId": "65afd248bd19b2cdb0eff282",
+                            "start": 168,
+                            "end": 168
+                        }
+                    ]
+                },
+                {
+                    "id": "65afdb37db285265fae6e0ba",
+                    "entityId": "65afd45bdb285265fae6ca90",
+                    "refs": [],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": null,
+                    "parsedValue": null,
+                    "value": null,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": null,
+                    "indices": []
+                },
+                {
+                    "id": "65afe077db285265fae6e64e",
+                    "entityId": "65afd45bdb285265fae6ca90",
+                    "refs": [],
+                    "entityExtractionConfidence": null,
+                    "ocrConfidence": null,
+                    "confidence": 1,
+                    "rawValue": null,
+                    "parsedValue": null,
+                    "value": null,
+                    "source": "HUMAN",
+                    "user": {
+                        "id": "5ccadf2d074ce2cdd8f8a495",
+                        "firstName": "Bart",
+                        "lastName": "Van Miegem",
+                        "email": "b.vanmiegem@metamaze.eu"
+                    },
+                    "checked": null,
+                    "image": null,
+                    "coords": null,
+                    "indices": []
+                }
+            ],
+            "processedPdf": null,
+            "completedAt": "2024-01-24T07:07:33.172Z",
+            "createdAt": "2024-01-23T14:50:49.804Z"
+        }
+    ],
+    "createdAt": "2024-01-23T14:50:25.480Z",
+    "completedAt": "2024-01-24T06:41:14.269Z"
+}

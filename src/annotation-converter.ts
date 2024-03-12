@@ -4,11 +4,6 @@ import { ConvertedAnnotation, ConvertedEntity } from './types/output';
 
 interface ConvertedAnnotationDataObject extends ConvertedAnnotation {
   indices?: null | Index[];
-  id: string;
-  entity: { id: string; name: string };
-  value: string | number | null;
-  index: number;
-  children: ConvertedAnnotation[];
 }
 
 export class AnnotationConverter {
@@ -26,38 +21,24 @@ export class AnnotationConverter {
     };
   }
 
-  private mapAnnotationDataObjectToConvertedAnnotation(
-    annotationDO: ConvertedAnnotationDataObject,
-  ): ConvertedAnnotation {
-    return {
-      id: annotationDO.id,
-      entity: annotationDO.entity,
-      index: annotationDO.index,
-      value: annotationDO.value,
-      children: annotationDO.children,
-    };
-  }
-
-  private findIndexRecursive(dataobject: ConvertedAnnotationDataObject): number {
-    if (dataobject.indices !== null && dataobject.indices !== undefined && dataobject.indices.length > 0) {
+  private findMinimumIndexRecursive(dataobject: ConvertedAnnotationDataObject): number {
+    if (dataobject.indices && dataobject.indices.length > 0) {
       return dataobject.indices[0].start;
     }
 
     if (dataobject.children.length > 0) {
       return Math.min(
-        ...dataobject.children.map((value: ConvertedAnnotationDataObject) => this.findIndexRecursive(value)),
+        ...dataobject.children.map((value: ConvertedAnnotationDataObject) => this.findMinimumIndexRecursive(value)),
       );
     }
 
     return Number.MAX_SAFE_INTEGER;
   }
 
-  // HINT: you probably need to pass extra argument(s) to this function to make it performant.
   public convertAnnotations(
     annotations: Annotation[],
     entityHashMap: ConvertedItemMap<ConvertedEntity>,
   ): ConvertedAnnotation[] {
-    // make a hashTable to keep track of all unique entities in their converted format
     const convertedAnnotationHashTable: ConvertedItemMap<ConvertedAnnotationDataObject> = Object.create(null);
     const convertedAnnotationHashTableNested: ConvertedItemMap<ConvertedAnnotationDataObject> = Object.create(null);
     annotations.forEach((annotation: Annotation) => {
@@ -72,40 +53,31 @@ export class AnnotationConverter {
     });
 
     const noIndiceAnnotationIds: string[] = [];
-    const indiceAnnotationIds: string[] = [];
 
     annotations.forEach((annotation: Annotation) => {
       if (annotation.refs.length > 0) {
-        // if entity has parentIds, add the entity to the children array of that parent in the hashmap
         annotation.refs.forEach((parentId: string) => {
           convertedAnnotationHashTableNested[parentId].children.push(convertedAnnotationHashTable[annotation.id]);
         });
       }
 
-      if (annotation.indices?.length === 0) {
+      if (!annotation.indices || annotation.indices.length === 0) {
         noIndiceAnnotationIds.push(annotation.id);
-      } else if (annotation.indices !== null && annotation.indices.length > 0) {
-        indiceAnnotationIds.push(annotation.id);
       }
     });
-    // console.log('table', JSON.stringify(convertedAnnotationHashTableNested));
-
-    const convertAnnotations: ConvertedAnnotation[] = [];
 
     noIndiceAnnotationIds.forEach((id: string) => {
       const annotationInNestedMap = convertedAnnotationHashTableNested[id];
-      const index = this.findIndexRecursive(annotationInNestedMap);
+      const index = this.findMinimumIndexRecursive(annotationInNestedMap);
       convertedAnnotationHashTable[id].index = index;
     });
 
-    // console.log('table', JSON.stringify(convertedAnnotationHashTable));
     Object.values(convertedAnnotationHashTable).forEach((value: ConvertedAnnotationDataObject) => {
       delete value.indices;
     });
 
     annotations.forEach((annotation: Annotation) => {
       if (annotation.refs.length > 0) {
-        // if entity has parentIds, add the entity to the children array of that parent in the hashmap
         annotation.refs.forEach((parentId: string) => {
           convertedAnnotationHashTable[parentId].children.push(convertedAnnotationHashTable[annotation.id]);
           delete convertedAnnotationHashTable[annotation.id];
@@ -113,11 +85,10 @@ export class AnnotationConverter {
       }
     });
 
-    Object.values(convertedAnnotationHashTable).forEach((value: ConvertedAnnotationDataObject) => {
-      convertAnnotations.push(this.mapAnnotationDataObjectToConvertedAnnotation(value));
+    return Object.values(convertedAnnotationHashTable).map((value: ConvertedAnnotationDataObject) => {
+      delete value.indices;
+      return value;
     });
-
-    return convertAnnotations;
   }
 
   public sortAnnotationsByIndexAsc(annotationA: ConvertedAnnotation, annotationB: ConvertedAnnotation): number {

@@ -1,7 +1,6 @@
-import { AnnotationConverter } from './annotation-converter';
-import { EntityConverter } from './entity-converter';
-import input from './input.json'; // This import style requires "esModuleInterop", see "side notes"
-import { Annotation, Entity } from './types/input';
+import { EntityConverter, AnnotationConverter } from './converters';
+import input from './input.json';
+import { Entity, Annotation } from './types';
 
 const entityConverter = new EntityConverter();
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

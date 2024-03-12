@@ -1,15 +1,14 @@
-import { Entity } from './types/input';
-import { ConvertedItemMap } from './types/other';
-import { ConvertedEntity } from './types/output';
+import { ConvertedEntity, ConvertedItemMap, Entity } from '../types';
+import { BaseConverter } from './base-converter';
 
-export class EntityConverter {
+export class EntityConverter extends BaseConverter<ConvertedEntity> {
   private entityHashMap: ConvertedItemMap<ConvertedEntity>;
 
   public getLatestEntityHashMap(): ConvertedItemMap<ConvertedEntity> {
     return this.entityHashMap;
   }
 
-  // could also be done recursively
+  // could also be done recursively with parentIds
   public convertEntities(entities: Entity[]): ConvertedEntity[] {
     // make a hashTable to keep track of all unique entities in their converted format
     this.entityHashMap = Object.create(null);
@@ -18,6 +17,7 @@ export class EntityConverter {
     });
 
     const convertedEntities: ConvertedEntity[] = [];
+
     entities.forEach((entity: Entity) => {
       if (entity.refs.length > 0) {
         // if entity has parentIds, add the entity to the children array of that parent in the hashmap
@@ -37,13 +37,7 @@ export class EntityConverter {
     entities: ConvertedEntity[],
     sortFunc: (entityA: ConvertedEntity, entityB: ConvertedEntity) => number,
   ): ConvertedEntity[] {
-    entities.sort(sortFunc);
-    entities.forEach((entity: ConvertedEntity) => {
-      if (entity.children) {
-        this.sortConvertedEntities(entity.children, this.sortEntitiesByNameAsc);
-      }
-    });
-    return entities;
+    return super.sortItems<ConvertedEntity>(entities, sortFunc);
   }
 
   public sortEntitiesByNameAsc(entityA: ConvertedEntity, entityB: ConvertedEntity): number {

@@ -1,12 +1,11 @@
-import { Annotation, Index } from './types/input';
-import { ConvertedItemMap } from './types/other';
-import { ConvertedAnnotation, ConvertedEntity } from './types/output';
+import { ConvertedAnnotation, Index, Annotation, ConvertedItemMap, ConvertedEntity, ConvertedItem } from '../types';
+import { BaseConverter } from './base-converter';
 
 interface ConvertedAnnotationDataObject extends ConvertedAnnotation {
   indices?: null | Index[];
 }
 
-export class AnnotationConverter {
+export class AnnotationConverter extends BaseConverter<ConvertedAnnotation> {
   private mapAnnotationPropsToConvertedAnnotationDataObject(
     annotation: Annotation,
     entityHashMap: ConvertedItemMap<ConvertedEntity>,
@@ -28,7 +27,9 @@ export class AnnotationConverter {
 
     if (dataobject.children.length > 0) {
       return Math.min(
-        ...dataobject.children.map((value: ConvertedAnnotationDataObject) => this.findMinimumIndexRecursive(value)),
+        ...dataobject.children.map((value: ConvertedItem<ConvertedAnnotation>) =>
+          this.findMinimumIndexRecursive(value as ConvertedAnnotationDataObject),
+        ),
       );
     }
 
@@ -106,12 +107,6 @@ export class AnnotationConverter {
     annotations: ConvertedAnnotation[],
     sortFunc: (annotationA: ConvertedAnnotation, annotationB: ConvertedAnnotation) => number,
   ): ConvertedAnnotation[] => {
-    annotations.sort(sortFunc);
-    annotations.forEach((annotation: ConvertedAnnotation) => {
-      if (annotation.children) {
-        this.sortConvertedAnnotations(annotation.children, this.sortAnnotationsByIndexAsc);
-      }
-    });
-    return annotations;
+    return super.sortItems<ConvertedAnnotation>(annotations, sortFunc);
   };
 }

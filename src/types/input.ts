@@ -98,7 +98,7 @@ interface User {
   email: string;
 }
 
-interface Index {
+export interface Index {
   pageId: string;
   start: number;
   end: number;

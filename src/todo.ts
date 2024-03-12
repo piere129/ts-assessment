@@ -19,7 +19,7 @@ export const convertInput = (input: Input): Output => {
     const annotationConverter = new AnnotationConverter();
     const annotations = annotationConverter.sortConvertedAnnotations(
       annotationConverter.convertAnnotations(document.annotations, entityConverter.getLatestEntityHashMap()),
-      annotationConverter.sortEntitiesByNameAsc,
+      annotationConverter.sortAnnotationsByIndexAsc,
     );
     return { id: document.id, entities, annotations };
   });

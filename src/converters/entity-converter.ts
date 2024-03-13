@@ -44,7 +44,7 @@ export class EntityConverter extends BaseConverter<ConvertedEntity> {
     return entityA.name.localeCompare(entityB.name);
   }
 
-  public mapEntityPropsToConvertedEntity(entity: Entity): ConvertedEntity {
+  private mapEntityPropsToConvertedEntity(entity: Entity): ConvertedEntity {
     return {
       id: entity.id,
       name: entity.name,

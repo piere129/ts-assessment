@@ -6,36 +6,6 @@ interface ConvertedAnnotationDataObject extends ConvertedAnnotation {
 }
 
 export class AnnotationConverter extends BaseConverter<ConvertedAnnotation> {
-  private mapAnnotationPropsToConvertedAnnotationDataObject(
-    annotation: Annotation,
-    entityHashMap: ConvertedItemMap<ConvertedEntity>,
-  ): ConvertedAnnotationDataObject {
-    return {
-      id: annotation.id,
-      value: annotation.value,
-      entity: { id: annotation.entityId, name: entityHashMap[annotation.entityId].name },
-      index: annotation.indices && annotation.indices.length > 0 ? annotation.indices[0].start : -1,
-      indices: annotation.indices,
-      children: [],
-    };
-  }
-
-  private findMinimumIndexRecursive(dataobject: ConvertedAnnotationDataObject): number {
-    if (dataobject.indices && dataobject.indices.length > 0) {
-      return dataobject.indices[0].start;
-    }
-
-    if (dataobject.children.length > 0) {
-      return Math.min(
-        ...dataobject.children.map((value: ConvertedItem<ConvertedAnnotation>) =>
-          this.findMinimumIndexRecursive(value as ConvertedAnnotationDataObject),
-        ),
-      );
-    }
-
-    return Number.MAX_SAFE_INTEGER;
-  }
-
   public convertAnnotations(
     annotations: Annotation[],
     entityHashMap: ConvertedItemMap<ConvertedEntity>,
@@ -109,4 +79,34 @@ export class AnnotationConverter extends BaseConverter<ConvertedAnnotation> {
   ): ConvertedAnnotation[] => {
     return super.sortItems<ConvertedAnnotation>(annotations, sortFunc);
   };
+
+  private mapAnnotationPropsToConvertedAnnotationDataObject(
+    annotation: Annotation,
+    entityHashMap: ConvertedItemMap<ConvertedEntity>,
+  ): ConvertedAnnotationDataObject {
+    return {
+      id: annotation.id,
+      value: annotation.value,
+      entity: { id: annotation.entityId, name: entityHashMap[annotation.entityId].name },
+      index: annotation.indices && annotation.indices.length > 0 ? annotation.indices[0].start : -1,
+      indices: annotation.indices,
+      children: [],
+    };
+  }
+
+  private findMinimumIndexRecursive(dataobject: ConvertedAnnotationDataObject): number {
+    if (dataobject.indices && dataobject.indices.length > 0) {
+      return dataobject.indices[0].start;
+    }
+
+    if (dataobject.children.length > 0) {
+      return Math.min(
+        ...dataobject.children.map((value: ConvertedItem<ConvertedAnnotation>) =>
+          this.findMinimumIndexRecursive(value as ConvertedAnnotationDataObject),
+        ),
+      );
+    }
+
+    return Number.MAX_SAFE_INTEGER;
+  }
 }

@@ -6,10 +6,9 @@ interface ConvertedAnnotationDataObject extends ConvertedAnnotation {
 }
 
 export class AnnotationConverter extends BaseConverter<ConvertedAnnotation> {
-  public convertAnnotations(
-    annotations: Annotation[],
-    entityHashMap: ConvertedItemMap<ConvertedEntity>,
-  ): ConvertedAnnotation[] {
+  private annotations: ConvertedAnnotation[];
+
+  public convertAnnotations(annotations: Annotation[], entityHashMap: ConvertedItemMap<ConvertedEntity>): this {
     // a hashTable to track the actual eventual item to set the index on
     const convertedAnnotationHashTable: ConvertedItemMap<ConvertedAnnotationDataObject> = Object.create(null);
     // a nested temporary hashTable as reference, to get the actual index by travelling down the indices property
@@ -66,19 +65,20 @@ export class AnnotationConverter extends BaseConverter<ConvertedAnnotation> {
       }
     });
 
-    return Object.values(convertedAnnotationHashTable);
-  }
-
-  public sortAnnotationsByIndexAsc(annotationA: ConvertedAnnotation, annotationB: ConvertedAnnotation): number {
-    return annotationA.index - annotationB.index;
+    this.annotations = Object.values(convertedAnnotationHashTable);
+    return this;
   }
 
   public sortConvertedAnnotations = (
-    annotations: ConvertedAnnotation[],
     sortFunc: (annotationA: ConvertedAnnotation, annotationB: ConvertedAnnotation) => number,
-  ): ConvertedAnnotation[] => {
-    return super.sortItems<ConvertedAnnotation>(annotations, sortFunc);
+  ): this => {
+    this.annotations = super.sortItems<ConvertedAnnotation>(this.annotations, sortFunc);
+    return this;
   };
+
+  public getResults(): ConvertedAnnotation[] {
+    return this.annotations;
+  }
 
   private mapAnnotationPropsToConvertedAnnotationDataObject(
     annotation: Annotation,

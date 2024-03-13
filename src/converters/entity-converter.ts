@@ -2,6 +2,7 @@ import { ConvertedEntity, ConvertedItemMap, Entity } from '../types';
 import { BaseConverter } from './base-converter';
 
 export class EntityConverter extends BaseConverter<ConvertedEntity> {
+  private entities: ConvertedEntity[];
   private entityHashMap: ConvertedItemMap<ConvertedEntity>;
 
   public getLatestEntityHashMap(): ConvertedItemMap<ConvertedEntity> {
@@ -9,7 +10,7 @@ export class EntityConverter extends BaseConverter<ConvertedEntity> {
   }
 
   // could also be done recursively with parentIds
-  public convertEntities(entities: Entity[]): ConvertedEntity[] {
+  public convertEntities(entities: Entity[]): EntityConverter {
     // make a hashTable to keep track of all unique entities in their converted format
     this.entityHashMap = Object.create(null);
     entities.forEach((entity: Entity) => {
@@ -30,18 +31,17 @@ export class EntityConverter extends BaseConverter<ConvertedEntity> {
       convertedEntities.push(this.entityHashMap[entity.id]);
     });
 
-    return convertedEntities;
+    this.entities = convertedEntities;
+    return this;
   }
 
-  public sortConvertedEntities(
-    entities: ConvertedEntity[],
-    sortFunc: (entityA: ConvertedEntity, entityB: ConvertedEntity) => number,
-  ): ConvertedEntity[] {
-    return super.sortItems<ConvertedEntity>(entities, sortFunc);
+  public sortConvertedEntities(sortFunc: (entityA: ConvertedEntity, entityB: ConvertedEntity) => number): this {
+    this.entities = super.sortItems<ConvertedEntity>(this.entities, sortFunc);
+    return this;
   }
 
-  public sortEntitiesByNameAsc(entityA: ConvertedEntity, entityB: ConvertedEntity): number {
-    return entityA.name.localeCompare(entityB.name);
+  public getResult(): ConvertedEntity[] {
+    return this.entities;
   }
 
   private mapEntityPropsToConvertedEntity(entity: Entity): ConvertedEntity {

@@ -1,9 +1,9 @@
 import { EntityConverter, AnnotationConverter } from './converters';
 import { sortAnnotationsByIndexAsc, sortEntitiesByNameAsc } from './sort-options';
-import { Input, Output } from './types';
+import { Input, Output, Document } from './types';
 
 export const convertInput = (input: Input): Output => {
-  const documents = input.documents.map((document) => {
+  const documents = input.documents.map((document: Document) => {
     // convert entities
     const entityConverter = new EntityConverter();
     const entities = entityConverter

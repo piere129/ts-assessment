@@ -30,7 +30,7 @@ interface Page {
   width: number;
 }
 
-interface Document {
+export interface Document {
   id: string;
   entities: Entity[]; // pay attention to this property
   annotations: Annotation[]; // pay attention to this property

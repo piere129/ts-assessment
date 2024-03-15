@@ -5,6 +5,7 @@ export const sortEntitiesByNameAsc = (entityA: ConvertedEntity, entityB: Convert
   return entityA.name.localeCompare(entityB.name);
 };
 
+// CONVERTEDANNOTATION SORTING
 export const sortAnnotationsByIndexAsc = (
   annotationA: ConvertedAnnotation,
   annotationB: ConvertedAnnotation,

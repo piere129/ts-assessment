@@ -5,7 +5,6 @@ import { convertInput } from './todo';
 import { Input } from './types/input';
 
 describe('Todo', () => {
-  // TODO: make sure this test passes
   it('Should be able to convert the input (flat lists) to the output (nested) structure', () => {
     const output = convertInput(inputJson as Input);
 
